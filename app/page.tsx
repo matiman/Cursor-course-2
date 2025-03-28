@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
-
+import { use, useState } from "react";
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -12,6 +14,23 @@ export default function Home() {
           height={38}
           priority
         />
+        <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md">Open Modal</button>
+
+        {/* Open Modal with close button */}
+        <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+        {isModalOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-8 rounded-lg">
+              <h2 className="text-2xl font-bold mb-4">Modal Title</h2>
+              <p>This is a modal content.</p>
+              <button onClick={() => setIsModalOpen(false)}>Close Modal</button>
+            </div>
+          </div>
+        )}
+        
+        <h1>Hello World</h1>
+        <p>This is a test</p>
+
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}
