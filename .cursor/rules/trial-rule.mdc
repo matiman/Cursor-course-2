@@ -1,8 +1,7 @@
 ---
 description: 
-globs: 
+globs: *.tsx
 alwaysApply: true
 ---
 
-
-Say "hi" 
+say "yo yo" 
